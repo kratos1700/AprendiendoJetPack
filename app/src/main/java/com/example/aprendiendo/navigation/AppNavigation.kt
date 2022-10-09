@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.aprendiendo.room.ui.PantallaRoom
 import com.example.aprendiendo.screens.PantallaPrimera
 import com.example.aprendiendo.screens.PantallaSegunda
 
@@ -26,6 +27,10 @@ fun AppNavigation(){
             type= NavType.StringType
         })){
             PantallaSegunda(navController, it.arguments?.getString("text")) // recuperamos el texto
+        }
+
+        composable(route = AppScreens.PantallaRoom.ruta){
+            PantallaRoom(navController)
         }
     }
 

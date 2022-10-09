@@ -4,5 +4,6 @@ sealed class AppScreens(val ruta: String){
 
     object PantallaPrimera:AppScreens("primera_pantalla")
     object PantallaSegunda:AppScreens("segunda_pantalla")
+    object PantallaRoom:AppScreens("pantalla_room")
 }
 

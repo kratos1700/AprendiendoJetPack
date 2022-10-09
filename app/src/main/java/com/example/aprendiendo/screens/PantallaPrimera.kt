@@ -75,6 +75,21 @@ fun BodyContent(name : String, navController: NavController){
 
 
             }
+
+            // damos espacio entre la texto i boton
+            Spacer(modifier = Modifier.height(40.dp))
+
+            // boton con bordes
+            OutlinedButton(onClick = {
+                navController.navigate(route = AppScreens.PantallaRoom.ruta)
+            },
+                border = BorderStroke(1.dp, Color.Blue),
+                shape = RoundedCornerShape(50)
+            ) {
+                Text(text = "Ir Pruebas con Room")
+
+
+            }
         }
 
     }
