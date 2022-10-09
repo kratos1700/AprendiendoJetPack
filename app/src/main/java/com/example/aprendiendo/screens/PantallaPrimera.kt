@@ -1,5 +1,6 @@
 package com.example.aprendiendo.screens
 
+import android.annotation.SuppressLint
 import androidx.activity.R
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -19,6 +20,7 @@ import com.example.aprendiendo.logo
 import com.example.aprendiendo.navigation.AppScreens
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PantallaPrimera(navController: NavController){
     // nospermite usar los elementos basicos de Material Desing
@@ -27,6 +29,7 @@ fun PantallaPrimera(navController: NavController){
             Text(text = "Primera Pantalla")
         }
     }) {
+        //it.calculateBottomPadding().value
         BodyContent("Kratos1700", navController)
     }
 }
