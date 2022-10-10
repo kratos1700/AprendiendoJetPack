@@ -13,6 +13,12 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+        // CONFIG DE ROOM PARA LAS EXPORTACIONES
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments += ["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

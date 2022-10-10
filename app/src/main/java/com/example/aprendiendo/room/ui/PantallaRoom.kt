@@ -1,5 +1,6 @@
 package com.example.aprendiendo.room.ui
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
@@ -10,12 +11,26 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.sqlite.db.SimpleSQLiteQuery
+import com.example.aprendiendo.room.AppDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "CoroutineCreationDuringComposition")
 @Composable
 fun PantallaRoom(navController: NavController) {
+    //para crear coroutinas en JetPack
+    val scope = rememberCoroutineScope()
+    //recuperamos el contexto
+    val context = LocalContext.current
     Scaffold(topBar = {
         TopAppBar() {
             // añadimos icono
@@ -27,7 +42,16 @@ fun PantallaRoom(navController: NavController) {
 
         }
     }) {
+       // AppDatabase.initDatabase(context = LocalContext.current)
+       // rememberCoroutineScope()
 
+        scope.launch {
+            withContext(Dispatchers.IO){
+                AppDatabase.initDatabase(context).query(SimpleSQLiteQuery("SELECT 1"))
+
+            }
+
+        }
     }
 
 
