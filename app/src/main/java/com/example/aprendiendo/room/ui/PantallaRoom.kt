@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.aprendiendo.room.AppDatabase
+import com.example.aprendiendo.room.ui.viewModel.PantallaRomViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -26,7 +27,7 @@ import kotlinx.coroutines.withContext
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "CoroutineCreationDuringComposition")
 @Composable
-fun PantallaRoom(navController: NavController) {
+fun PantallaRoom(navController: NavController, viewModel:PantallaRomViewModel) {
     //para crear coroutinas en JetPack
     val scope = rememberCoroutineScope()
     //recuperamos el contexto

@@ -35,9 +35,9 @@ data class Nota(
     @ColumnInfo(name = "alumno_id") val alumnoId: Long,
     @ColumnInfo(name = "materia_id") val materiaId: Long,
     val nota: Double
-) /*{
+) {
     @ColumnInfo(name = "create_at")
     var createAt = Date(System.currentTimeMillis())
     @ColumnInfo(name = "update_at")
     var updateAt = Date(System.currentTimeMillis())
-}*/
+}

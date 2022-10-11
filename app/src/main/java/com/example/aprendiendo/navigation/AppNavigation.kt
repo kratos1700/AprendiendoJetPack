@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.aprendiendo.room.ui.PantallaRoom
+import com.example.aprendiendo.room.ui.viewModel.PantallaRomViewModel
 import com.example.aprendiendo.screens.PantallaPrimera
 import com.example.aprendiendo.screens.PantallaSegunda
 
@@ -14,6 +15,7 @@ import com.example.aprendiendo.screens.PantallaSegunda
 
 @Composable
 fun AppNavigation(){
+    val pantallaRomViewModel = PantallaRomViewModel()
     // gestiona el estado de navegacion de las pantallas
     val navController =  rememberNavController()
     // le pasamos el navController que hemos creado
@@ -30,7 +32,7 @@ fun AppNavigation(){
         }
 
         composable(route = AppScreens.PantallaRoom.ruta){
-            PantallaRoom(navController)
+            PantallaRoom(navController,pantallaRomViewModel)
         }
     }
 
