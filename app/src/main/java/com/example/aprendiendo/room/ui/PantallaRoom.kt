@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.aprendiendo.room.AppDatabase
+import com.example.aprendiendo.room.database.entities.Alumno
 import com.example.aprendiendo.room.ui.viewModel.PantallaRomViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -45,7 +46,7 @@ fun PantallaRoom(navController: NavController, viewModel:PantallaRomViewModel) {
     }) {
        // AppDatabase.initDatabase(context = LocalContext.current)
        // rememberCoroutineScope()
-
+/*
         scope.launch {
             withContext(Dispatchers.IO){
                 AppDatabase.initDatabase(context).query(SimpleSQLiteQuery("SELECT 1"))
@@ -53,6 +54,12 @@ fun PantallaRoom(navController: NavController, viewModel:PantallaRomViewModel) {
             }
 
         }
+
+ */
+       // viewModel.saveAlumnos(Alumno("Miki", "Jairo", 22), context)
+        viewModel.saveAlumnosLive(Alumno("Mikiasdas", "Jairo", 22), context)
+
+
     }
 
 
