@@ -62,7 +62,7 @@ fun PantallaRoom(navController: NavController, viewModel: PantallaRomViewModel) 
  */
         // viewModel.saveAlumnos(Alumno("Miki", "Jairo", 22), context)
 
-        viewModel.findAll().observe(lifeCycleOwner){
+        viewModel.alumnos.observe(lifeCycleOwner){
             Log.d("ROOM", it.toString())
         }
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd, ) {

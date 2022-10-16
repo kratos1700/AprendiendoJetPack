@@ -3,10 +3,7 @@ package com.example.aprendiendo.room.ui.viewModel
 import android.content.Context
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.aprendiendo.room.AppDatabase
 import com.example.aprendiendo.room.app.App
 import com.example.aprendiendo.room.database.entities.Alumno
@@ -16,6 +13,7 @@ import kotlinx.coroutines.withContext
 
 class PantallaRomViewModel : ViewModel() {
 
+    val alumnos =  App.db.alumnoDao().findAll().asLiveData()
 
     fun saveAlumnos(alumno: Alumno, context: Context): MutableState<Long?> {
         val mutableState: MutableState<Long?> = mutableStateOf(null)
@@ -45,7 +43,7 @@ class PantallaRomViewModel : ViewModel() {
         return liveData
     }
 
-    fun findAll():LiveData<List<Alumno>>{
+    /*fun findAll():LiveData<List<Alumno>>{
         val liveData = MutableLiveData<List<Alumno>>()
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
@@ -55,5 +53,8 @@ class PantallaRomViewModel : ViewModel() {
         }
         return liveData
 
-    }
+    }*/
+
+    //FUNCION CON FLOW
+
 }
